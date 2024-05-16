@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Lung Cancer CDSS</title>
+
+    <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+ 
+        body {
+            position: center;
+            text-align: center;
+            max-width: 850px;
+            margin: auto;
+            padding: auto;
+            font-family: 'Quicksand', sans-serif;
+            background-image: url('/static/bodyclr.png');
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        h1, h2, h3, h4, p{
+            color: white;
+            text-align: center;
+        }
+
+        .border {
+            border-radius: 25px;
+            background-color: rgba(0, 0, 0, 0.734);
+            padding: 5px;
+            margin: 5px;
+        
+        }
+
+        .borderform {
+            border-radius: 25px;
+            border: 1px;
+            padding: 4%;
+            border-style: solid;
+            background-color: rgba(99, 99, 99, 0.764);
+            border-color: rgb(44, 44, 46);
+            box-shadow: 2px 2px rgb(44, 44, 46);
+        
+        }
+        .fade-in {
+            animation: fadeIn 3s;
+        
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .button {
+
+            border: none;
+            border-radius: 25px;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: auto;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+            background-color: rgb(44, 44, 46); 
+            color: rgb(255, 255, 255); 
+            
+        }
+
+        .button1:hover {
+            background-color: #474545;
+        }
+
+        #regForm {
+            
+            margin: 25px auto;
+            padding: 40px;
+            width: 70%;
+            min-width: 300px;
+        }
+
+        input {
+            border-radius: 25px;
+            background: white;
+            border: 5px solid #FFF;
+            accent-color: #04AA6D;
+        }
+
+        label {
+            color: white;
+            font-family: 'Quicksand', sans-serif;
+            font-size:large;
+        }
+
+        .tab {
+            display: none;
+        }
+
+        .step {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbbbbb;
+            border: none;
+            border-radius: 50%;
+            display: inline-block;
+            opacity: 0.5;
+        }
+
+        .step.active {
+            opacity: 1;
+        }
+
+        .step.finish {
+            background-color: #04AA6D;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            
+            }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color:  rgb(44, 44, 46);
+            color: rgb(255, 255, 255);
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            }
+        
+     </style>
+</head>
+
+<body>
+    <div class="fade-in">
+        
+        <h1 style="text-shadow: 3px 3px 3px black;">Surgery Survival Prediction</h1>
+
+        <form id="regForm" class="border" action="/survival" method="post">
+
+            <h2><em>Unfortunately, the patient has Lung Cancer.</em></h2>
+
+            <br>
+
+            <h3>
+                You can now estimate the survival of the patient for more than a year in case they choose to remove the cancerous tumour with surgery. In order to do so, you need to 
+                follow the same process as before, but this time by providing more specialized information about the patient in the following form.
+            </h3>
+
+            <br>
+
+            <div class="borderform">
+
+                <h3><em>Please fill in the data below:</em></h3>
+
+                <br>
+
+                <div class="tab">
+
+                    <h3>
+                        <div class="tooltip">&#x1F6C8;
+                            <span class="tooltiptext">Specific combination of ICD-10 codes for primary and secondary as well multiple tumours if any.</span>
+                        </div>
+                    Diagnosis:
+                    </h3>
+                
+                    <input type="radio" id="DGN1" name="DGN" value="1" checked required>
+                    <label for="DGN1" method="post">DGN1</label>   
+
+                    <input type="radio" id="DGN2" name="DGN" value="2">
+                    <label for="DGN2" method="post">DGN2</label>
+
+                    <input type="radio" id="DGN3" name="DGN" value="3">
+                    <label for="DGN3" method="post">DGN3</label>
+
+                    <input type="radio" id="DGN4" name="DGN" value="4">
+                    <label for="DGN4" method="post">DGN4</label>
+
+                    <input type="radio" id="DGN5" name="DGN" value="5">
+                    <label for="DGN5" method="post">DGN5</label>
+
+                    <input type="radio" id="DGN6" name="DGN" value="6">
+                    <label for="DGN6" method="post">DGN6</label>
+
+                    <input type="radio" id="DGN8" name="DGN" value="8">
+                    <label for="DGN8" method="post">DGN8</label>
+
+                </div>
+
+                <div class="tab"><h3>Dyspnoea before surgery:</h3>
+
+                    <input type="radio" id="yes" name="PRE9" value="1" checked required>
+                    <label for="yes" method="post">Yes</label>    
+
+                    <input type="radio" id="no" name="PRE9" value="0">
+                    <label for="no" method="post">No</label>
+
+                </div>
+                
+                <div class="tab">
+
+                    <h3>
+                        <div class="tooltip">&#x1F6C8;
+                            <span class="tooltiptext">T in clinical TNM - size of the original tumour, from OC11 (smallest) to OC14 (largest).</span>
+                        </div>
+                    Size of original tumour:
+                    </h3>
+
+                    <input type="radio" id="OC11" name="PRE14" value="11" checked required>
+                    <label for="OC11" method="post">OC11</label>  
+
+                    <input type="radio" id="OC12" name="PRE14" value="12">
+                    <label for="OC12" method="post">OC12</label>
+
+                    <input type="radio" id="OC13" name="PRE14" value="13">
+                    <label for="OC13" method="post">OC13</label>  
+
+                    <input type="radio" id="OC14" name="PRE14" value="14">
+                    <label for="OC14" method="post">OC14</label>  
+
+                </div>
+
+                <div class="tab"><h3>Type 2 Diabetes Mellitus:</h3>
+
+                    <input type="radio" id="yes" name="PRE17" value="1" checked required>
+                    <label for="yes" method="post">Yes</label>  
+
+                    <input type="radio" id="no" name="PRE17" value="0">
+                    <label for="no" method="post">No</label>
+
+                </div>
+
+                <div class="tab"><h3>Asthma:</h3>
+
+                    <input type="radio" id="yes" name="PRE32" value="1" checked required>
+                    <label for="yes" method="post">Yes</label> 
+
+                    <input type="radio" id="no" name="PRE32" value="0">
+                    <label for="no" method="post">No</label>
+                </div>
+                
+                <br>
+
+                <div style="overflow:auto;">
+                    <div style="float:right;">
+                        <button type="button" class="button button1" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                        <button type="button" class="button button1" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                    </div>
+                </div>
+                
+                <div style="text-align:center;margin-top:40px;">
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                </div>
+            </div>
+        </form> 
+
+
+    </div>
+
+    <script>
+        var currentTab = 0; 
+        showTab(currentTab);
+
+        function showTab(n) {
+            var x = document.getElementsByClassName("tab");
+            x[n].style.display = "block";
+            if (n == 0) {
+                document.getElementById("prevBtn").style.display = "none";
+            } else {
+                document.getElementById("prevBtn").style.display = "inline";
+            }
+            if (n == (x.length - 1)) {
+                document.getElementById("nextBtn").innerHTML = "Submit";
+            } else {
+                document.getElementById("nextBtn").innerHTML = "Next";
+            }
+            fixStepIndicator(n)
+        }
+
+        function nextPrev(n) {
+            var x = document.getElementsByClassName("tab");
+            if (n == 1 && !validateForm()) return false;
+            x[currentTab].style.display = "none";
+            currentTab = currentTab + n;
+            if (currentTab >= x.length) {
+                document.getElementById("regForm").submit();
+                return false;
+            }
+            showTab(currentTab);
+        }
+
+        function validateForm() {
+            var x, y, i, valid = true;
+            x = document.getElementsByClassName("tab");
+            y = x[currentTab].getElementsByTagName("input");
+            if (valid) {
+                document.getElementsByClassName("step")[currentTab].className += " finish";
+            }
+            return valid; 
+        }
+
+        function fixStepIndicator(n) {
+            var i, x = document.getElementsByClassName("step");
+            for (i = 0; i < x.length; i++) {
+                x[i].className = x[i].className.replace(" active", "");
+            }
+            x[n].className += " active";
+        }
+</script>
+</body>
+</html>

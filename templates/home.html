@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lung Cancer CDSS</title>
+
+    <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+ 
+        body {
+            position: center;
+            text-align: center;
+            max-width: 850px;
+            margin: auto;
+            padding: auto;
+            font-family: 'Quicksand', sans-serif;
+            background-image: url('/static/bodyclr.png');
+            background-repeat: no-repeat;
+            background-position: center center;
+
+        }
+        h1, h2, h3, h4, p{
+            color: white;
+            text-align: center;
+        }
+
+        .border {
+            border-radius: 25px;
+            background-color: rgba(0, 0, 0, 0.734);
+            padding: 35px;
+            margin: 5px;
+        }
+
+        .fade-in {
+            animation: fadeIn 3s;
+        
+        }
+        
+        @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+        }
+
+        .button {
+
+            border: none;
+            border-radius: 25px;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: auto;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+            background-color: rgb(44, 44, 46); 
+            color: rgb(255, 255, 255); 
+            
+        }
+
+        .button1:hover {
+            background-color: #474545;
+        }
+        
+     </style>
+</head>
+
+<body>
+    <div class="fade-in">
+        <h1 style="text-shadow: 3px 3px 3px black;">Lung Cancer Clinical Decision Support System</h1>
+
+        <br>
+
+        <h3 class="border">Lung Cancer has become one of the most common cancer types in the world, as there
+            are many factors in the modern lifestyle that increase the risk of having it. As with many types of 
+            cancer, it can lead to a number of health problems and even death if not diagnosed in time.
+        </h3>
+
+        <br>
+
+            <h3 class="border">This Web Application is created in order to help medical professionals with their decision of whether or not a patient has 
+                lung cancer. If they do, then it can also predict the patient's survival after surgery. The Web Application uses two Machine Learning models, one for the prediction of lung cancer and the other for the prediction of the patient's survival for more than a year 
+                after tumor removal surgery, both based on the input provided by the user in the forms. The second model is only "activated" when lung cancer is predicted by the first model. 
+            </h3>
+
+        <br>
+
+            <h3 class="border">
+                    This application is meant to be used as a Clinical Decision Support System mainly by professionals, because
+                    the decisions made by the models have a certain percentage of accuracy and are not always guaranteed to be valid. 
+                    If you want to make a prediction, start by clicking the following button.
+            </h3>
+
+        <br>
+        
+        <a href="{{url_for('predict_lung_cancer')}}" class="button button1" style="padding: 0px 20px;"><h4>Begin</h4></a>
+
+
+    </div>
+
+</body>
+</html>

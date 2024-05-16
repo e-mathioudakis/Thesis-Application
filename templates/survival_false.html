@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lung Cancer CDSS</title>
+
+    <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+ 
+        body {
+            position: center;
+            text-align: center;
+            max-width: 850px;
+            margin: auto;
+            padding: auto;
+            font-family: 'Quicksand', sans-serif;
+            background-image: url('/static/bodyclr.png');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+        
+        }
+
+        h1, h2, h3, h4, p{
+
+            color: white;
+            text-align: center;
+        }
+
+        .border {
+
+            border-radius: 25px;
+            background-color: rgba(0, 0, 0, 0.734);
+            padding: 35px;
+            margin: 5px;
+        }
+
+        .fade-in {
+
+            animation: fadeIn 3s;
+        
+        }
+        
+        @keyframes fadeIn {
+
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .button {
+
+            border: none;
+            border-radius: 25px;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: auto;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+
+            background-color: rgb(44, 44, 46); 
+            color: rgb(255, 255, 255); 
+            
+        }
+
+        .button1:hover {
+
+            background-color: #474545;
+        }
+        
+     </style>
+</head>
+
+<body>
+    <div class="fade-in">
+
+        <h1 style="text-shadow: 3px 3px 3px black;">Survival Prediction</h1>
+
+        <br>
+
+        <div class="border">
+            
+            <h3>
+            <em>The patient will most likely survive a year or even more after surgery.</em>
+
+            <br><br>
+
+                Thank you for using our Web Application for predicting Lung Cancer and the Risk of Survival. If you wish to make another entry to the system,
+                click the button below to return to the cancer prediction page.
+            </h3>
+
+            <br>
+            
+            <a href="{{url_for('predict_lung_cancer')}}" class="button button1" style="padding: 0px 20px;"><h4>Return</h4></a>
+        
+        </div>
+
+
+    </div>
+
+</body>
+</html>
