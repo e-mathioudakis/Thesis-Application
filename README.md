@@ -63,7 +63,7 @@ following table:
 
 The last and largest step is to create the web application itself. This consists of three main pilars, as we can see in the repository folders. First, we have the models that we created using the [Pickle](https://docs.python.org/3/library/pickle.html)
 library in Python. Next, we had to make some templates for the different pages that our application will have. The total of them is six (6) and they were made using simple **HTML**, **CSS** and **JavaScript** and are available in
-this repository. For the last part, the back-end development, we used Flask which is ideal for small applications with simple functions like this one. 
+this repository. For the last part, the back-end development, we used Flask which is ideal for small applications with simple functions like this one. Feel free to clone this repository and try the application out for yourself and thank you for reading this!
 
 
 
